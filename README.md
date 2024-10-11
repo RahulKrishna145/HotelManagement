@@ -1,8 +1,9 @@
 read the file_structure.txt file first
 
-1. Download postgres
-2. download pgAdmin and make your database for eg: (hotelManagement).
-3. create the schemas as follows:
+1. Download postgres from https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+2. make sure to install the pgAdmin tool while installing postgres
+3. download pgAdmin and make your database for eg: (hotelManagement).
+4. create the schemas as follows:
 CREATE TABLE Login_Credentials (
     Username VARCHAR(100) PRIMARY KEY,
     Password VARCHAR(100),
