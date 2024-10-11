@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
+        if (!username || !password) {
+            alert('Please enter both username and password.');
+            return;
+        }
+
         try {
             const response = await fetch('http://localhost:5000/api/login', {
                 method: 'POST',
