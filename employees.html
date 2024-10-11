@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Employees</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Employees</h1>
+        <form id="addEmployeeForm">
+            <input type="text" id="employeeFirstName" placeholder="First Name" required>
+            <input type="text" id="employeeLastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+            <button type="submit">Add Employee</button>
+        </form>
+        <div id="employeesList"></div>
+    </div>
+    <script src="js/employees.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+hotel-management-system/
+│
+├── public/
+│   ├── css/
+│   │   └── styles.css
+│   │
+│   ├── js/
+│   │   ├── login.js
+│   │   ├── dashboard.js
+│   │   ├── occupants.js
+│   │   ├── employees.js
+│   │   └── rooms.js
+│   │
+│   ├── index.html (Login Page)
+│   ├── dashboard.html (Main Dashboard)
+│   ├── employees.html (Employee Management)
+│   ├── occupants.html (Occupant Management)
+│   └── rooms.html (Room Management)
+│
+└── server.js (Node.js backend)

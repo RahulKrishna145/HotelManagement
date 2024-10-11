@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Occupants</title>
+</head>
+<body>
+    <div class="occupants-container">
+        <h2>Occupants</h2>
+        <form id="occupantForm">
+            <input type="text" id="first_name" placeholder="First Name" required>
+            <input type="text" id="last_name" placeholder="Last Name" required>
+            <input type="number" id="room_id" placeholder="Room ID" required>
+            <input type="date" id="check_in_date" required>
+            <input type="date" id="check_out_date" required>
+            <button type="submit">Add Occupant</button>
+        </form>
+        <div id="occupantsList"></div>
+    </div>
+    <script src="js/occupants.js"></script>
+</body>
+</html>
