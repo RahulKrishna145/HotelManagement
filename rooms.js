@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>Type: ${room.room_type}</span>
                     <span>Floor: ${room.floor_number}</span>
                     <span>Status: ${room.status}</span>
-                    <span>Check-in Date: ${room.check_in_date}</span>
-                    <span>Check-out Date: ${room.check_out_date}</span>
+                    <span>Check-in Date: ${room.check_in_date || 'N/A'}</span>
+                    <span>Check-out Date: ${room.check_out_date || 'N/A'}</span>
                     <button onclick="changeRoomStatus(${room.room_id}, '${room.status}')">
                         Mark as ${room.status === 'occupied' ? 'vacant' : 'occupied'}
                     </button>
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function changeRoomStatus(roomId, currentStatus) {
+    window.changeRoomStatus = async (roomId, currentStatus) => {
         const newStatus = currentStatus === 'occupied' ? 'vacant' : 'occupied';
         try {
             const response = await fetch(`http://localhost:5000/api/rooms/${roomId}`, {
@@ -38,13 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(`Room status changed to ${newStatus}`);
                 loadRooms(); // Reload rooms
             } else {
-                alert('Failed to change room status.');
+                const errorData = await response.json();
+                console.error('Error details:', errorData);
+                alert('Failed to change room status: ' + (errorData.message || 'Unknown error.'));
             }
         } catch (error) {
             console.error('Error changing room status:', error);
             alert('An error occurred. Please try again later.');
         }
-    }
+    };
 
     // Initial fetch of rooms
     loadRooms();
