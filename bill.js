@@ -6,19 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const occupantId = document.getElementById('occupantId').value;
 
         try {
-            // Fetch occupant details
-            const occupantResponse = await fetch(`http://localhost:5000/api/occupants/${occupantId}`);
+            // Fetch billing details
+            const occupantResponse = await fetch(`http://localhost:5000/api/billing/${occupantId}`);
             if (!occupantResponse.ok) {
                 throw new Error('Occupant not found');
             }
             const occupant = await occupantResponse.json();
-            console.log('Occupant data:', occupant); // Log the full occupant data
+            console.log('Occupant data:', occupant); // Check what this logs
 
             // Validate each required field
             if (!occupant.check_in_date || !occupant.check_out_date || !occupant.room_type) {
                 console.error('Check-in date:', occupant.check_in_date);
                 console.error('Check-out date:', occupant.check_out_date);
-                console.error('Room type:', occupant.room_type); // This should now log the correct room type
+                console.error('Room type:', occupant.room_type);
                 throw new Error('Missing required occupant details');
             }
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // Determine cost per day based on room type
-            const roomType = occupant.room_type.toLowerCase(); // Make sure this is correct
+            const roomType = occupant.room_type.toLowerCase(); // Extract room type from occupant data
             const costPerDay = roomCosts[roomType];
 
             if (costPerDay === undefined) {
