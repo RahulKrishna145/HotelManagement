@@ -24,49 +24,60 @@
         /* Dashboard Container Styling */
         .dashboard-container {
             display: flex;
-            flex-direction:column;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             width: 100%;
+            max-width: 1200px;
             height: 100%;
             text-align: center;
+            padding: 20px;
         }
         h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #333;
             margin: 20px 0;
+            font-weight: 600;
         }
 
         /* Navigation Styling */
         nav {
-            display: flex;
-            flex-direction:row;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two equal columns */
             gap: 20px;
-            width: 80%;
-            max-width: 800px;
+            width: 100%;
+            max-width: 900px;
             justify-content: center;
             margin: 20px 0;
         }
-        
+
         /* Panel Button Styling */
         nav button {
-            flex: 1;
-            padding: 80px 50px;
-            margin:20px 20px;
-            font-size: 1.2rem;
+            padding: 30px 0;
+            font-size: 1.5rem;
             color: #fff;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         #occupantsBtn {
             background: linear-gradient(135deg,  #4facfe, #00f2fe);
         }
         #employeesBtn {
-            background: linear-gradient(135deg, #4facfe,#00f2fe );
+            background: linear-gradient(135deg, #4facfe, #00f2fe );
         }
         #roomsBtn {
+            background: linear-gradient(135deg,  #4facfe, #00f2fe);
+        }
+        #billBtn {
             background: linear-gradient(135deg,  #4facfe, #00f2fe);
         }
 
@@ -78,28 +89,71 @@
 
         /* Content Display Area */
         #content {
-            width: 80%;
-            max-width: 800px;
+            width: 100%;
+            max-width: 900px;
             padding: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #content h3 {
+            font-size: 1.5rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Adjust button sizes on smaller screens */
+            nav button {
+                font-size: 1.2rem;
+                padding: 20px 0;
+                height: 100px;
+            }
+
+            /* Stack the grid in one column for mobile */
+            nav {
+                grid-template-columns: 1fr;
+            }
+
+            /* Adjust the content area padding for smaller screens */
+            #content {
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="dashboard-container">
         <h2>Dashboard</h2>
-        <nav>
-           <a href="occupants.html"> <button id="occupantsBtn">Occupants</button></a>
-           <a href="employees.html"> <button id="employeesBtn">Employees</button></a>
-            <a href="rooms.html"><button id="roomsBtn">  Rooms  </button></a>
-        </nav>
-        <div id="content">
-            <!-- Content will load here -->
+        
+        <div id="content" class="content">
+            <h3>Manage Your Data</h3>
+            <nav class="navbar">
+                <a href="occupants.html">
+                    <button class="navbutton" id="occupantsBtn">Occupants</button>
+                </a>
+                <a href="employees.html">
+                    <button class="navbutton" id="employeesBtn">Employees</button>
+                </a>
+                <a href="rooms.html">
+                    <button class="navbutton" id="roomsBtn">Rooms</button>
+                </a>
+                <a href="bill.html">
+                    <button class="navbutton" id="billBtn">Bills</button>
+                </a>
+            </nav>
         </div>
     </div>
-    <script src=".js/dashboard.js"></script>
+    <script src="js/dashboard.js"></script>
 </body>
 </html>
